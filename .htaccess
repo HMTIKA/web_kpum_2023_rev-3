@@ -1,0 +1,21 @@
+ErrorDocument 401 /jump.php
+ErrorDocument 402 /jump.php
+ErrorDocument 403 /jump.php
+ErrorDocument 404 /jump.php
+ErrorDocument 500 /jump.php
+
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+</IfModule>
