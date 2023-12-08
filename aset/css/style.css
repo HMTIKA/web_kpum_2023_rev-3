@@ -1,0 +1,993 @@
+/*
+==================================================
+    1. BASIC
+==================================================
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f6f9fd;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+    font-style: inherit;
+}
+
+:root{
+    --papper-texture : url('../images/papper-texture.jpg');
+    --ripped-papper : url('../images/ripped-papper.png');
+    --ripped-papper-3x1 : url('../images/ripped-papper-3x1.png');
+    --ripped-papper-2 : url('../images/ripped-papper-2.png');
+    --ripped-papper-2-3x1 : url('../images/ripped-papper-2-3x1.png');
+    --paper-texture-3 : url('../images/paper-texture-3.jpg');
+    --havana-sunset-sans-outline: havana-sunset-sans-outline;
+    --havana-sunset-script-alt: havana-sunset-script-alt;
+    --havana-sunset-script: havana-sunset-script;
+    --havana-sunsetsans-filled-havana: havana-sunsetsans-filled-havana;
+    --Gilbert-Einstein: Gilbert-Einstein;
+    --Dosis-bold: Dosis-bold;
+    --Dosis-ExtraBold: Dosis-ExtraBold;
+    --Dosis-ExtraLight: Dosis-ExtraLight;
+    --Dosis-Light: Dosis-Light;
+    --Dosis-Medium: Dosis-Medium;
+    --Dosis-regular: Dosis-regular;
+    --Dosis-SemiBold: Dosis-SemiBold;
+    --Dosis-VariableFont_wght: Dosis-VariableFont_wght;
+    
+}
+
+@font-face {
+    font-family: Dosis-bold;
+    src: url(../fonts/Dosis-Bold.ttf);
+}
+@font-face {
+    font-family: Dosis-ExtraBold;
+    src: url(../fonts/Dosis-ExtraBold.ttf);
+}
+@font-face {
+    font-family: Dosis-ExtraLight;
+    src: url(../fonts/Dosis-ExtraLight.ttf);
+}
+@font-face {
+    font-family: Dosis-Light;
+    src: url(../fonts/Dosis-Light.ttf);
+}
+@font-face {
+    font-family: Dosis-Medium;
+    src: url(../fonts/Dosis-Medium.ttf);
+}
+@font-face {
+    font-family: Dosis-regular;
+    src: url(../fonts/Dosis-Regular.ttf);
+}
+@font-face {
+    font-family: Dosis-SemiBold;
+    src: url(../fonts/Dosis-SemiBold.ttf);
+}
+@font-face {
+    font-family: Dosis-VariableFont_wght;
+    src: url(../fonts/Dosis-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: havana-sunset-sans-outline;
+    src: url(../fonts/havana-sunset-sans-outline.ttf);
+}
+@font-face {
+    font-family: havana-sunset-script-alt;
+    src: url(../fonts/havana-sunset-script-alt.ttf);
+}
+@font-face {
+    font-family: havana-sunset-script;
+    src: url(../fonts/havana-sunset-script.ttf);
+}
+@font-face {
+    font-family: havana-sunsetsans-filled-havana;
+    src: url(../fonts/havanasunsetsansfilled-havana.ttf);
+}
+@font-face {
+    font-family: Gilbert-Einstein;
+    src: url(../fonts/Gilbert-Einstein.otf);
+}
+
+
+/*
+==================================================
+    2. NAVBAR
+==================================================
+*/
+
+.navbar {
+    background-color: #114B5F;
+    box-shadow: 0 0 15px #000000;
+    z-index: 99;
+    color: white;
+    overflow-x: hidden;
+}
+
+.navbar .navbar-brand {
+    opacity: 1;
+    font-size: 1em;
+    padding: 5px;
+    font-family: Dosis-semiBold;
+}
+
+.navbar a {
+    color: white;
+    opacity: 1;
+    cursor: pointer;
+    font-family: Dosis-semiBold;
+}
+
+.navbar-toggler {
+    box-shadow: none !important;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.navbar-toggler span {
+    width: 30px;
+    height: 2.1px;
+    border-radius: 10px;
+    display: absolute;
+    background-color: white;
+    margin: 3px;
+    transition: 0.5s;
+}
+
+.navbar-toggler span:nth-child(1) {
+    transform-origin: center;
+    animation: navtogspan1 1s ease-in-out forwards;
+}
+
+.navbar-toggler.open span:nth-child(1) {
+    transform-origin: center;
+    animation: navtogspan1hov 1s ease-in-out forwards;
+}
+
+.navbar-toggler span:nth-child(2) {
+    transform-origin: center;
+    animation: navtogspan2 1s ease-in-out forwards;
+    transition: 0.5s;
+}
+
+.navbar-toggler:hover span:nth-child(2) {
+    width: 30px;
+    margin-left: 3px;
+}
+
+.navbar-toggler.open span:nth-child(2) {
+    transform-origin: center;
+    animation: navtogspan2hov 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+.navbar-toggler span:nth-child(3) {
+    transform-origin: center;
+    animation: navtogspan3 1s ease-in-out forwards;
+}
+
+.navbar-toggler.open span:nth-child(3) {
+    transform-origin: center;
+    animation: navtogspan3hov 1s ease-in-out forwards;
+}
+
+@keyframes navtogspan1 {
+    0% {
+        transform: translate(0, 6px) rotate(45deg);
+    }
+
+    20% {
+        transform: translate(0, 6px) rotate(0deg);
+    }
+
+    80% {
+        transform: translate(0, 6px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes navtogspan1hov {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    20% {
+        transform: translate(0, 6px) rotate(0deg);
+    }
+
+    80% {
+        transform: translate(0, 6px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(0, 6px) rotate(45deg);
+    }
+}
+
+@keyframes navtogspan2 {
+    0% {
+        opacity: 0;
+    }
+
+    45% {
+        opacity: 0;
+    }
+
+    55% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes navtogspan2hov {
+    0% {
+        opacity: 1;
+    }
+
+    45% {
+        opacity: 0;
+    }
+
+    55% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes navtogspan3 {
+    0% {
+        transform: translate(0, -10px) rotate(-45deg);
+    }
+
+    35% {
+        transform: translate(0, -10px) rotate(0deg);
+    }
+
+    45% {
+        transform: translate(0, -10px) rotate(0deg);
+    }
+
+    55% {
+        transform: translate(0, -10px) rotate(0deg);
+    }
+
+    65% {
+        transform: translate(0, -10px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes navtogspan3hov {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    35% {
+        transform: translate(0, -10px) rotate(0deg);
+    }
+
+    45% {
+        transform: translate(0, -10px) rotate(0deg);
+    }
+
+    55% {
+        transform: translate(0, -10px) rotate(0deg);
+    }
+
+    65% {
+        transform: translate(0, -10px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(0, -10px) rotate(-45deg);
+    }
+}
+
+/*
+==================================================
+    3. SIDEBAR
+==================================================
+*/
+
+.sidebar {
+    display: block;
+    position: fixed;
+    background-color: #114B5F;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 25%;
+    height: 100vh;
+    padding: 50px 20px;
+    transform: translateX(-100%);
+    transition: 0.5s ease-in-out;
+    animation: sidebar-close 1s ease-in-out forwards;
+    z-index: 98 !important;
+    font-family: Dosis-Bold;
+}
+
+.sidebar-open {
+    animation: sidebar-open 1s ease-in-out forwards;
+    z-index: 98 !important;
+}
+
+@keyframes sidebar-open {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    25% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes sidebar-close {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.sidebar ul li {
+    list-style: none;
+    margin-left: -20px;
+    font-family: Dosis-semiBold;
+}
+
+.sidebar ul li a:hover{
+    color: inherit;
+}
+
+/* Responsive */
+/* Small devices (portain phones, 576px and down) */
+@media screen and (max-width: 576px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) {
+    .sidebar {
+        width: 50%;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    .sidebar {
+        width: 50%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    .sidebar {
+        width: 25%;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+    .sidebar {
+        width: 25%;
+    }
+}
+
+/*
+==================================================
+    4. DATA SUARA
+==================================================
+*/
+
+.data-suara h1{
+    font-family: Dosis-semiBold;
+}
+
+.data-suara .card {
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: black;
+    font-family: Dosis-semiBold;
+}
+
+/*
+==================================================
+    5. DATA VOTERS
+==================================================
+*/
+
+.data-voters{
+    font-family: Dosis-semiBold;
+}
+
+.data-voters .search-voters {
+    text-align: right;
+}
+
+.data-voters .search-voters input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 2px;
+    outline: none;
+}
+
+.data-voters .table input {
+    background-color: transparent;
+    border: none;
+    padding: 2px;
+    outline: none;
+}
+
+.data-voters .row:nth-child(3) {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: scroll;
+}
+
+.data-voters .row:nth-child(3)::-webkit-scrollbar {
+    display: none;
+}
+
+/* Responsive */
+/* Small devices (portain phones, 576px and down) */
+@media screen and (max-width: 576px) {
+    .data-voters .search-voters{
+        text-align: left;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) {
+    .data-voters .search-voters{
+        text-align: left;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    .data-voters .search-voters{
+        text-align: right;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) {}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {}
+
+/*
+==================================================
+    6. LIVE VOTE
+==================================================
+*/
+
+.live-vote {
+    font-family: Dosis-semiBold;
+}
+
+.live-vote .card {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.live-vote .bars {
+    background-color: rgb(27, 221, 255);
+    width: 100%;
+    height: 50px;
+    position: relative;
+    line-height: 50px;
+    border-radius: 10px;
+}
+
+.live-vote .bars .bars-width {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    background-color: rgb(0, 132, 255);
+    z-index: 0;
+    border-radius: 10px;
+}
+
+/*
+==================================================
+    7. CEK AKUN
+==================================================
+*/
+
+.cek-akun {
+    font-family: Dosis-semiBold;
+}
+
+.cek-akun input {
+    padding: 10px;
+    outline: none;
+    border: 1px solid rgb(0, 162, 255);
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/*
+==================================================
+    8. ADD VOTER
+==================================================
+*/
+
+.add-voters {
+    font-family: Dosis-semiBold;
+}
+
+.add-voters input {
+    padding: 10px;
+    outline: none;
+    border: 1px solid rgb(0, 162, 255);
+    border-radius: 10px;
+    width: 100%;
+}
+
+/*
+==================================================
+    9. CANDIDATES
+==================================================
+*/
+
+.candidates{
+    font-family: Dosis-semiBold;
+}
+
+.candidates input{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/*
+==================================================
+    10. VOTE
+==================================================
+*/
+
+.vote{
+    font-family: Dosis-SemiBold;
+    background-image: var(--paper-texture-3);
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: 0;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.vote h1{
+    font-family: var(--Dosis-ExtraBold);
+}
+
+.vote::after{
+    width: 100%;
+    min-height: 100%;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, .5);
+    z-index: 2;
+}
+
+.vote .card, h1, h2{
+    z-index: 5;
+}
+
+.vote .card{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: .5s;
+    position: relative;
+}
+
+.vote .card:hover{
+    transform: scale(1.1);
+    z-index: 6;
+}
+
+.vote .confirm{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .8);
+    padding: 50px;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+    text-align: center;
+}
+
+.vote .confirm p{
+    color: white;
+} 
+
+/*
+==================================================
+    11. HOME
+==================================================
+*/
+
+.jumbotron{
+    height: 100vh;
+    width: 100%;
+    background-image: var(--paper-texture-3);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.jumbotron::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.jumbotron .ripped-papper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    background-image: var(--ripped-papper);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 2;
+    animation: ripped-papper-open .5s linear 2s forwards;
+}
+
+@keyframes ripped-papper-open {
+    0%{
+        bottom: -100%;
+    }
+    100%{
+        bottom: -10%;
+    }
+}
+
+.jumbotron .ripped-papper-2{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    background-image: var(--ripped-papper-2);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 2;
+    animation: ripped-papper-open .5s linear 2.2s forwards;
+}
+
+.jumbotron .container{
+    z-index: 3;
+}
+
+.jumbotron img{
+    border-radius: 50%;
+    display: block;
+    width: 200px;
+}
+
+.jumbotron h1{
+    font-family: var(--Gilbert-Einstein);
+    color: black;
+    font-weight: bold;
+}
+
+.jumbotron h2{
+    font-family: var(--Dosis-SemiBold);
+    color: black;
+    font-size: 2em;
+}
+
+.jumbotron p{
+    font-family: var(--Dosis-SemiBold);
+    font-size: 1.3em;
+}
+
+.jumbotron a.btn{
+    display: block;
+    border-radius: 10px;
+    border: 2px solid #114B5F;
+    width: 50%;
+    background-color: rgba(255, 255, 255, .9);
+    transition: .5s;
+    font-family: Dosis-SemiBold;
+    position: relative;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.jumbotron a.btn:hover{
+    color: white;
+    background-color: transparent;
+    border-color: white;
+}
+
+.jumbotron a.btn::after{
+    padding-top: 12px;
+    line-height: 100%;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0%;
+    background-color: #114B5F;
+    transition: .5s;
+}
+
+.jumbotron .row .row:nth-child(2) .col-lg-4:nth-child(1) a.btn::after{
+    content: 'REGISTRASI';
+    right: 100%;
+}
+
+.jumbotron .row .row:nth-child(2) .col-lg-4:nth-child(2) a.btn::after{
+    content: 'LOGIN';
+    left: 100%;
+    
+}
+
+.jumbotron .row .row:nth-child(2) .col-lg-4:nth-child(1) a.btn:hover::after{
+    right: 0%;
+}
+
+.jumbotron .row .row:nth-child(2)  .col-lg-4:nth-child(2) a.btn:hover::after{
+    left: 0%;
+}
+
+/* Responsive */
+/* Small devices (portain phones, 576px and down) */
+@media screen and (max-width: 576px) {
+    .jumbotron img{
+        margin: auto;
+    }
+    .jumbotron h1, .jumbotron h2, .jumbotron p{
+        text-align: center;
+    }
+    .jumbotron h2{
+        font-size: 1.5em;
+    }
+    .jumbotron p{
+        font-size: .8em;
+    }
+    .jumbotron a.btn{
+        margin: auto;
+        width: 50%;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) {
+    .jumbotron img{
+        margin: auto;
+    }
+    .jumbotron h1, .jumbotron h2, .jumbotron p{
+        text-align: center;
+    }
+    .jumbotron h2{
+        font-size: 1.5em;
+    }
+    .jumbotron a.btn{
+        margin: auto;
+        width: 75%;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    .jumbotron img{
+        margin: auto;
+    }
+    .jumbotron h1, .jumbotron h2, .jumbotron p{
+        text-align: center;
+    }
+    .jumbotron h2{
+        font-size: 2em;
+    }
+    .jumbotron p{
+        font-size: 1.3em;
+    }
+    .jumbotron a.btn{
+        margin: auto;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    .jumbotron img{
+        margin-left: auto;
+        margin-right: 0;
+    }
+    .jumbotron h1, .jumbotron h2, .jumbotron p{
+        text-align: left;
+    }
+    
+    .jumbotron h2{
+        font-size: 3em;
+    }
+    .jumbotron a.btn{
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+    .jumbotron h1, .jumbotron h2, .jumbotron p{
+        text-align: left;
+    }
+}
+
+.jumbotron-2{
+    font-family: Dosis-semiBold;;
+}
+
+/*
+==================================================
+    12. SIGN-IN
+==================================================
+*/
+
+.sign-in{
+    width: 90%;
+    margin: auto;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    border-radius: 10px;
+    font-family: Dosis-Regular;
+    text-align: center;
+}
+
+.sign-in h1{
+    font-family: Dosis-Bold;
+    text-align: center;
+}
+
+.sign-in input{
+    outline: none;
+    box-shadow: none;
+    text-align: center;
+    border: 2px solid rgb(134, 134, 134);
+    border-radius: 10px;
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px;
+}
+
+.sign-in p{
+    text-align: center;
+    margin-bottom: -10px;
+    font-size: 1.5em;
+}
+.sign-in .btn{
+    display: block;
+    margin: auto;
+}
+
+/*
+==================================================
+    12. SIGN-UP
+==================================================
+*/
+
+.sign-up {
+    font-family: Dosis-semiBold;
+}
+
+.sign-up input {
+    padding: 10px;
+    outline: none;
+    border: 1px solid rgb(0, 162, 255);
+    border-radius: 10px;
+    width: 100%;
+}
+
+/*
+==================================================
+    13. FEEDBACK
+==================================================
+*/
+
+.feedback textarea{
+    outline: none;
+    box-shadow: none;
+    border: 2px solid #114B5F;
+    border-radius: 10px;
+    width: 100%;
+    min-height: 200px;
+    max-height: 200px;
+    margin: 10px auto;
+    padding: 5px;
+}
+
+.feedback h1{
+    font-family: var(--Dosis-SemiBold);
+}
+
+.show-user-feedback{
+    font-family: var(--Dosis-SemiBold);
+}
+
+.show-user-feedback .card{
+    width: 90%;
+    margin: auto;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive */
+/* Small devices (portain phones, 576px and down) */
+@media screen and (max-width: 576px) {
+    .show-user-feedback .card{
+        width: 90%;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) {
+    .show-user-feedback .card{
+        width: 100%;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) {}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {}
